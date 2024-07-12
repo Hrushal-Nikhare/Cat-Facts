@@ -21,31 +21,34 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
+	@font-face {
+		font-family: "Oriental Cats";
+		src: url("/OrientalCats.otf") format("otf");
+	}
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+	}
+	* {
+		margin: 0;
 	}
 	html {
-		font-family: system-ui, sans-serif;
-		/* background: #13151a; */
-		background-size: 224px;
+		/* height: 100%;
+		width: 100%; */
+		background-color: #faedcd;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		font-family: "Oriental Cats";
+		font-style: normal;
+		line-height: normal;
+	}
+	h1 {
+		margin-top: 4.75rem;
+		color: #000;
+		font-size: 9rem;
+		font-weight: 300;
 	}
 </style>

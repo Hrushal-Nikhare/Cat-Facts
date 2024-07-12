@@ -1,20 +1,37 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import PeekCat1 from "../Images/peekCat.svg";
+import PeekCat2 from "../Images/stareCat.svg";
 ---
 
 <Layout>
-	<h1>Welcome to Cat Facts!</h1>
-	<p>Get ready to learn some fascinating facts about cats.</p>
-	<p>Here's a random cat fact for you:</p>
-	<p id="Fact"></p>
-	<button id="trigger">Get a new cat fact</button>
+	<h1>Cat Facts</h1>
+	<div id="InfoBox" class="InfoBox">
+		<p id="Fact">Paws-itively Loading...</p>
+	</div>
+
+	<button id="trigger">Purr-haps next?</button>
+	<Image
+		src={PeekCat1}
+		alt="A cat just looking at u not sure what it wants"
+		inferSize
+		class="PeekCat1"
+	/>
+	<Image
+		src={PeekCat2}
+		alt="two cats just looking at you"
+		inferSize
+		class="PeekCat2"
+	/>
+
 	<script>
 		const button = document.querySelector("button#trigger");
 		const fact = document.querySelector("p#Fact");
 
 		button.addEventListener("click", async () => {
 			const response = await fetch(
-				"https://catfact.ninja/fact?max_length=140"
+				"https://catfact.ninja/fact?max_length=150"
 			);
 			const data = await response.json();
 			if (fact) {
@@ -25,3 +42,56 @@ import Layout from "../layouts/Layout.astro";
 		document.onload = button.click();
 	</script>
 </Layout>
+
+<style>
+	.InfoBox {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		font-family: "Oriental Cats";
+		font-style: normal;
+		line-height: normal;
+		border-radius: 1rem;
+		border: 5px solid #ccd5ae;
+		background: #e9edc9;
+		margin: 6rem 8rem;
+	}
+	p#Fact {
+		font-size: 2.5rem;
+		text-align: center;
+		padding: 1rem;
+	}
+	button#trigger {
+		border-radius: 1rem;
+		border: 2px solid #d4a373;
+		font-size: 2rem;
+		background: #fefae0;
+		padding: 1rem;
+		color: #000;
+		font-family: "Oriental Cats";
+		font-size: 3rem;
+	}
+
+	button#trigger:hover {
+		background: #fcf2ae;
+	}
+
+	.PeekCat1 {
+		position: absolute;
+		top: 25%;
+		right: 0;
+		width: 20%;
+		z-index: -1;
+		mix-blend-mode: multiply;
+	}
+
+	.PeekCat2 {
+		position: absolute;
+		bottom: -15%;
+		left: 0;
+		width: 20%;
+		z-index: -1;
+		mix-blend-mode: multiply;
+	}
+</style>
