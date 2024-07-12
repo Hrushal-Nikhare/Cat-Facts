@@ -10,10 +10,31 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<!-- I hate my self for this next line -->
+		<meta
+			name="description"
+			content="Paws and Visit Us for Purrfect Cat Facts on Our Cozy Website!"
+		/>
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- Meta DATA -->
 		<meta name="generator" content={Astro.generator} />
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#faedcd" />
+		<meta property="og:title" content="Machine Learning Workshop" />
+		<meta
+			property="og:description"
+			content="Paws and Visit Us for Purrfect Cat Facts on Our Cozy Website!"
+		/>
+		<meta
+			property="og:image"
+			content="https://cosy-cat-facts.vercel.app/MetaImg.jpg"
+		/>
+		<meta
+			property="og:image:alt"
+			content="A Black cat looking at you while going into its box"
+		/>
+
 		<title>{title}</title>
 	</head>
 	<body>
