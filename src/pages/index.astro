@@ -39,9 +39,13 @@ import PeekCat2 from "../Images/stareCat.svg";
 			});
 		}
 
-		document.onload = () => {
-			(button as HTMLButtonElement)?.click();
-		};
+		document.addEventListener(
+			"DOMContentLoaded",
+			function () {
+				(button as HTMLButtonElement)?.click();
+			},
+			false
+		);
 	</script>
 </Layout>
 
